@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'article</h1>
+    <div>
+        <h2>{{ article.titre }}</h2>
+        <p class="fst-italic">Crée le {{ article.createdAt | date("d/m/Y") }}</p>
+        <h4> <span class="badge bg-secondary">{{ article.categorie.titre }}</span></h4>
+        <p>{{ article.contenu }}</p>
+
+    </div>
+
+{% endblock %}
+

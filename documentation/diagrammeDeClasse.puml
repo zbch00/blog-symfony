@@ -1,0 +1,20 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Article {
+    -id : nom
+    -titre : string
+    -contenu : text
+    -createdAt : dateTime
+    -slug : slug
+
+}
+
+class Categorie {
+    -id : int
+    -titre : titre
+    -slug : slug
+}
+
+@enduml
