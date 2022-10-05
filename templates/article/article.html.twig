@@ -3,12 +3,33 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Détails de l'article</h1>
+    <h1 class="mt-5">Détails de l'article</h1>
     <div>
         <h2>{{ article.titre }}</h2>
         <p class="fst-italic">Crée le {{ article.createdAt | date("d/m/Y") }}</p>
-        <h4> <span class="badge bg-secondary">{{ article.categorie.titre }}</span></h4>
-        <p>{{ article.contenu }}</p>
+        {% if article.categorie is not null %}
+            <h4 ><span class="badge bg-secondary">Catégorie : {{ article.categorie.titre }}</span></h4>
+        {% else %}
+            <h4 ><span class="badge bg-secondary">Catégorie : Aucune catégorie</span></h4>
+        {% endif %}
+        <h3 class="m-4">{{ article.contenu }}</h3>
+
+
+        <div class="container border border-info rounded">
+
+            {% if article.commentaires.count <=1 %}
+                <h5>Commentaire : {{ article.commentaires.count }}</h5>
+            {% else %}
+                <h5>Commentaires : {{ article.commentaires.count }}</h5>
+            {% endif %}
+
+            {% for commentaire in article.commentaires %}
+                <h6><li>{{ commentaire.contenu }} </li></h6>
+                <p>Publié le {{ commentaire.createdAt | date("d/m/Y") }} </p>
+                <p class="mb-3">Utilisateur : <span class="badge bg-secondary">{{ commentaire.utilisateurs.pseudo }}</span></p>
+
+            {% endfor %}
+        </div>
 
     </div>
 

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories</h1>
+    {% for categorie in categories %}
+        <div class="d-flex justify-content-between">
+
+            <div class="d-flex p-2 ">
+                <li>{{ categorie.titre }}</li>
+                <p> ({{ categorie.articles.count }} articles)</p>
+
+            </div>
+            <div class="d-flex p-2 ">
+                <a class="btn btn-primary " href="{{ path("app_categorie_slug",{slug : categorie.slug}) }}" role="button">Voir</a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
