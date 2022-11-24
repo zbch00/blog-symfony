@@ -30,6 +30,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             $article->setContenu($faker->paragraph("3",true));
             $article->setCreatedAt($faker->dateTimeBetween("-6 month","now"));
             $article->setSlug($this->slugger->slug($article->getTitre())->lower());
+            $article->setPubli($faker->numberBetween(0,1));
             $this->addReference("article".$i,$article);
 
             // Associer l'article à une catégorie

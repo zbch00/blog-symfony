@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez moi{% endblock %}
+
+{% block body %}
+
+    <h1 class="mb-3">Contactez moi</h1>
+    {{ form_start(formContact) }}{# form #}
+    {{ form_row(formContact.prenom,{'label': 'Prénom'}) }} {# champs titre #}
+    {{ form_row(formContact.nom,{'label': 'Nom'}) }}
+    {{ form_row(formContact.adresseEmail) }} {# champs contenu #}
+    {{ form_row(formContact.sujet) }}
+    {{ form_row(formContact.description) }}
+    <input type="submit" class="btn btn-primary" value="Soumettre ma demande">
+    {{ form_end(formContact) }}{# /form #}
+
+{% endblock %}
+

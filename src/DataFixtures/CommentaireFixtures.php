@@ -37,17 +37,9 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
             // Récuperer une référence d'un article
             $numArticle = $faker->numberBetween(1,30);
             $commentaire->setArticle($this->getReference("article". $numArticle));
-
-
-
-
-
             $manager->persist($commentaire);
         }
 
         $manager->flush();
-
     }
-
-
 }

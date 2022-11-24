@@ -45,6 +45,14 @@ class Article
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Commentaire::class)]
     private Collection $commentaires;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $publie = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $publi = null;
+
+
+
     public function __construct()
     {
         $this->Utilisateur_id = new ArrayCollection();
@@ -172,6 +180,30 @@ class Article
                 $commentaire->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPublie(): ?int
+    {
+        return $this->publie;
+    }
+
+    public function setPublie(?bool $publie): self
+    {
+        $this->publie = $publie;
+
+        return $this;
+    }
+
+    public function isPubli(): ?bool
+    {
+        return $this->publi;
+    }
+
+    public function setPubli(?bool $publi): self
+    {
+        $this->publi = $publi;
 
         return $this;
     }

@@ -8,6 +8,7 @@ class Article {
     -contenu : text
     -createdAt : dateTime
     -slug : slug
+    -publie : int
 
 }
 
@@ -28,6 +29,15 @@ class Utilisateur {
     -prenom : string
     -nom : string
     -pseudo: string
+}
+
+class Contact {
+    - nom : string
+    - prenom : string
+    - adresseEmail : string
+    - sujet : string
+    - description : string
+
 }
 
 Categorie "0..*" -- "0..1" Article

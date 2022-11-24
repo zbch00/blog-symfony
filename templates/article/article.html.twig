@@ -12,7 +12,7 @@
         {% else %}
             <h4 ><span class="badge bg-secondary">Catégorie : Aucune catégorie</span></h4>
         {% endif %}
-        <h3 class="m-4">{{ article.contenu }}</h3>
+        <h3 class="m-4">{{ article.contenu | raw }}</h3>
 
 
         <div class="container border border-info rounded">
